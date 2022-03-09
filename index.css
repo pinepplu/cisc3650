@@ -4,10 +4,6 @@ body{
 	background: lavender;
 	color: indigo;
 }
-table{
-	border:black;
-	color: slateblue;
-}
 ul li:hover{
 	font-size:100%;
 	background:yellow;
