@@ -1,0 +1,44 @@
+<!--3650 assignment 1 HTML page -->
+
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="3650website.css">
+
+	<title>TO DO list</title>
+</head>
+<body>
+	<h1>TO DO list</h1>
+	<ul id="todo">
+		<!<button type="button" onclick="newElement()" class="addBtn">Add Tasks</button>
+		<li>Task Description Do By Date</li>
+		<li>make this to accommodate to fit more things <input type="date"></li>
+		<li>update css make better formatting <input type="date"></li>
+		<li>allow users to add items to list using JS and HTML <input type="date"></li>
+		<li>allow users to check items off their list after the tasks have been completed <input type="date"></li>
+		<li>allow users to delete tasks from the list not the same as checking the items off <input type="date"></li>
+		<li>allow users to associate a due date with a task and display the due dates next to the text <input type="date"></li>
+		<li>allow users to uncheck the items that were accidentally checked <input type="date"></li>
+		<li>allow users to color code tasks to indicate priority or type of task <input type="date"></li>
+		<li>give some sort of feedback when users complete a task visual or sound or both <input type="date"></li>
+		<li>allow users to define subtasks which should be able to be checked off/deleted individually or together with the super-tasks <input type="date"></li>
+    	</ul>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+	
+	function newElement(){
+		var li = document.createElement("li");
+		var input = document.getElementById("input").value;
+		var txt = document.createTextNode(input);
+		li.appendChild(txt);
+		if(input ==  ""){
+			document.getElementById("todo").appendChild(li);
+		}
+		document.getElementById("input").value = "";
+	}
+	</script>
+</body>
+</html>
