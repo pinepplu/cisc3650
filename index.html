@@ -15,10 +15,6 @@
 			background: lavender;
 			color: indigo;
 		}
-
-		h1 {
-			text-align: center;
-		}
 		ul {
 			list-style: none;
 		}
@@ -36,13 +32,13 @@
 </head>
 <body>
 	<div class="container">
+		<h1 class="text-center display-1">ToDo List</h1>
 		<div class="row">
 			<form class="col-8 mx-auto" id="form">
 				<div class="input-group">
-					<h1>TO DO list</h1>
 					<input class="form-control" type="text" id="input" placeholder="add tasks...">
 					<span>
-						<button type="button" id="btn" class="btn btn-primary">Add Tasks</button>
+						<button type="button" id="addbtn" class="btn btn-primary">Add Tasks</button>
 					</span>
 				</div>
 			</form>
@@ -99,7 +95,7 @@
 			//variables
 			var form = document.getElementById("form");
 			var input = document.getElementById("input");
-			var btn = document.getElementById("btn");
+			var addbtn = document.getElementById("addbtn");
 			var list = document.getElementById("list");
 			var id = 1;
 
@@ -109,6 +105,7 @@
 			// list even listener
 			list.addEventListener("click", boxChecked);
 
+			//add tasks with button
 			function addBtn() {
 				if (input.value == "") {
 					alert("you must enter some value");
