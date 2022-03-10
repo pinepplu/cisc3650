@@ -4,6 +4,9 @@ body{
 	background: lavender;
 	color: indigo;
 }
+h1{
+  text-align: center;
+}
 ul li:hover{
 	font-size:100%;
 	background:yellow;
