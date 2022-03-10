@@ -32,67 +32,35 @@
 			font-family: monospace;
 			text-decoration: none;
 		}
-		ul li.checked {
-			text-decoration: line-through;
+		input[type=checkbox] {
+            float: left;
+        }
+		button[type=button] {
+			float: right;
+		}
+		.container {
+			margin-top: 20px;
 		}
 	</style>
 </head>
 <body>
+	<h1 class="text-center display-1">ToDo List</h1>
 	<div class="container">
-		<h1 class="text-center display-1">ToDo List</h1>
 		<div class="row">
 			<form class="col-8 mx-auto" id="form">
 				<div class="input-group">
 					<input class="form-control" type="text" id="input" placeholder="add tasks...">
 					<span>
-						<button type="button" id="addbtn" class="btn btn-primary">Add Tasks</button>
+						<button type="button" id="addbtn" class="btn btn-outline-success">+</button>
 					</span>
 				</div>
 			</form>
-			<!--<button onclick="add()">Add Tasks</button>-->
 		</div>
 		<div class="row">
 			<ul id="todo">
 				<li>
-					<input type="checkbox" class="form-check-input mt-0"> make this to accommodate to fit more things <input type="date">
-					<button type="submit" class="delbtn">Remove</button>
-				</li>
-				<li>
-					<input type="checkbox" class="form-check-input mt-0"> update css make better formatting <input type="date">
-					<button type="submit" class="delbtn">Remove</button>
-				</li>
-				<li>
-					<input type="checkbox" class="form-check-input mt-0"> allow users to add items to list using JS and HTML <input type="date">
-					<button type="submit" class="delbtn">Remove</button>
-				</li>
-				<li>
-					<input type="checkbox" class="form-check-input mt-0"> allow users to check items off their list after the tasks have been
-					completed
-					<input type="date"><button type="submit" class="delbtn">Remove</button>
-				</li>
-				<li><input type="checkbox" class="form-check-input mt-0"> allow users to delete tasks from the list not the same as checking the items
-					off
-					<input type="date"><button type="submit" class="delbtn">Remove</button>
-				</li>
-				<li><input type="checkbox" class="form-check-input mt-0"> allow users to associate a due date with a task and display the due dates
-					next
-					to
-					the text
-					<input type="date"><button type="submit" class="delbtn">Remove</button>
-				</li>
-				<li><input type="checkbox" class="form-check-input mt-0"> allow users to uncheck the items that were accidentally checked
-					<input type="date"><button type="submit" class="delbtn">Remove</button>
-				</li>
-				<li><input type="checkbox"> allow users to color code tasks to indicate priority or type of task
-					<input type="date"><button type="submit" class="delbtn">Remove</button>
-				</li>
-				<li><input type="checkbox" class="form-check-input mt-0"> give some sort of feedback when users complete a task visual or sound or
-					both
-					<input type="date"><button type="submit" class="delbtn">Remove</button>
-				</li>
-				<li><input type="checkbox" class="form-check-input mt-0"> allow users to define subtasks which should be able to be checked
-					off/deleted individually or together with the super-tasks
-					<input type="date"><button type="submit" class="delbtn">Remove</button>
+					<input type="checkbox" class="form-check-input mt-0">What other things do you have to do?<input type="date">
+					<button type="button" id="delbtn" class="btn-close"></button>
 				</li>
 			</ul>
 		</div>
@@ -104,13 +72,17 @@
 			var input = document.getElementById("input");
 			var addbtn = document.getElementById("addbtn");
 			var todo = document.getElementById("todo");
+			var delbtn = document.getElementById("delbtn")
 			var id = 1;
 
-			// button event listener
-			btn.addEventListener("click", addBtn);
+			// add button event listener
+			addbtn.addEventListener("click", addBtn);
 
-			// list even listener
+			// list event listener
 			todo.addEventListener("click", boxChecked);
+
+			//delete button event listener
+			delbtn.addEventListener("click", delBtn);
 
 			//add tasks with button
 			function addBtn() {
@@ -126,6 +98,12 @@
 					id++;
 					form.reset();
 				}
+			}
+
+			//delete tasks with button
+			function delBtn(element) {
+				var del = element.target;
+				del.parentNode.remove();
 			}
 
 			// strikes out completed task
