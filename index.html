@@ -15,8 +15,16 @@
 			background: lavender;
 			color: indigo;
 		}
+		h1 {
+            margin-top: 7rem;
+        }
 		ul {
 			list-style: none;
+			margin-top: 1rem;
+		}
+		li {
+			padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
 		}
 		ul li:hover {
 			font-size: 100%;
@@ -24,7 +32,6 @@
 			font-family: monospace;
 			text-decoration: none;
 		}
-
 		ul li.checked {
 			text-decoration: line-through;
 		}
@@ -96,14 +103,14 @@
 			var form = document.getElementById("form");
 			var input = document.getElementById("input");
 			var addbtn = document.getElementById("addbtn");
-			var list = document.getElementById("list");
+			var todo = document.getElementById("todo");
 			var id = 1;
 
 			// button event listener
 			btn.addEventListener("click", addBtn);
 
 			// list even listener
-			list.addEventListener("click", boxChecked);
+			todo.addEventListener("click", boxChecked);
 
 			//add tasks with button
 			function addBtn() {
@@ -115,7 +122,7 @@
 					var item = `<li id="li-${id}">${text}
                         <input id="box-${id}" class="checkboxes" type="checkbox"/>
                         </li>`;
-					list.insertAdjacentHTML('beforeend', item);
+					todo.insertAdjacentHTML('beforeend', item);
 					id++;
 					form.reset();
 				}
@@ -126,6 +133,9 @@
 				const element = event.target;
 				if (element.type == "checkbox") {
 					element.parentNode.style.textDecoration = "line-through";
+				}
+				else {
+					element.textDecoration = none;
 				}
 			}
 		}
